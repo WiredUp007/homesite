@@ -729,3 +729,148 @@ button {
   filter: blur(100px);
   opacity: 0.3;
 }
+
+/* ===== POEMS PANEL ONLY ===== */
+
+#poemsPanel {
+  width: min(520px, 78vw);
+  height: auto;
+  min-height: 460px;
+  max-height: min(560px, 82vh);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  align-items: stretch;
+  padding: 78px 32px 28px 34px;
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(255, 249, 215, 0.98), rgba(255, 234, 243, 0.96)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0) 35px,
+      rgba(129, 196, 255, 0.26) 35px,
+      rgba(129, 196, 255, 0.26) 37px
+    ),
+    linear-gradient(90deg, rgba(255, 150, 188, 0.32) 0, rgba(255, 150, 188, 0.32) 3px, transparent 3px);
+  box-shadow:
+    0 20px 46px rgba(58, 50, 91, 0.22),
+    0 0 0 3px rgba(255, 255, 255, 0.38) inset;
+  overflow: hidden;
+}
+
+#poemsPanel.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#poemsPanel::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+}
+
+#poemsPanel h1 {
+  margin: 0 0 18px;
+  padding-left: 34px;
+  text-align: left;
+  font-size: clamp(1.9rem, 3vw, 2.35rem);
+  color: #7f4a76;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6);
+}
+
+#poemPosts {
+  width: 100%;
+  max-height: none;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-right: 6px;
+}
+
+#poemPosts a.post {
+  margin: 0;
+  padding: 14px 18px 6px 34px;
+  border-radius: 14px 14px 0 0;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#poemPosts a.post:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.46);
+}
+
+#poemPosts a.post h2 {
+  margin: 0;
+  padding-left: 0;
+  color: #694f88;
+  font-size: 1.28rem;
+  line-height: 1.1;
+}
+
+#poemPosts a.post h2::before {
+  content: "•";
+  left: -16px;
+  top: 46%;
+  color: #ff7eae;
+  font-size: 1.4rem;
+}
+
+#poemPosts p {
+  margin: 0 0 8px;
+  padding: 0 18px 14px 34px;
+  border-radius: 0 0 14px 14px;
+  background: rgba(255, 255, 255, 0.28);
+  color: #5f5273;
+  box-shadow: none;
+  border-bottom: 1px dashed rgba(132, 115, 158, 0.28);
+}
+
+#poemBackBtn {
+  top: 18px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
+  max-width: 44px;
+  max-height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 16px rgba(126, 108, 157, 0.14);
+}
+
+#poemBackBtn::before {
+  content: "←";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #7f4a76;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+#poemBackBtn:hover {
+  transform: scale(1.06);
+}
+
+#poemBackBtn img {
+  opacity: 0;
+}
+
+@media (max-width: 720px) {
+  #poemsPanel {
+    width: min(92vw, 520px);
+    padding: 72px 20px 24px 24px;
+  }
+
+  #poemPosts {
+    padding-right: 2px;
+  }
+}
