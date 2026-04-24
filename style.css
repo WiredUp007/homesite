@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cormorant+Infant:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #ddd;
+}
+
+h1, h2, h3, h4, h5, h6,
+a {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* 🚫 disables scrolling */
+}
+
+body {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      #161e3a,
+      #161d36 2px,
+      #161e39 2px,
+      #1d2c5e 4px
+    );
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 60%,
+    rgba(0,0,0,0.15)
+  );
+  pointer-events: none;
+}
+
+body {
+  transition: background 0.5s ease;
+}
+
+/* ===== HOME LAYOUT ===== */
+#home {
+  position: relative;
+  z-index: 1;
+}
+
+#home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+#home.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+}
+
+
+/* ===== DESK WRAPPER (IMPORTANT) ===== */
+/* This becomes the reference for EVERYTHING */
+
+.desk-area {
+  position: absolute;
+  bottom: -204px;
+  left: -50px;
+  width: 700px;
+  height: 300px;
+}
+.desk-area::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 40px;
+  background: radial-gradient(rgba(0,0,0,0.35), transparent);
+  filter: blur(10px);
+  z-index: 0;
+}
+
+/* ===== DESK ===== */
+
+#desk {
+  position: absolute;
+  bottom: 0;
+  width: 130%;
+}
+
+#desk img {
+  width: 100%;
+  image-rendering: pixelated;
+  display: block;
+  filter: drop-shadow(0 6px 2px rgba(0,0,0,0.2));
+}
+
+/* ===== OBJECTS ON DESK ===== */
+
+#monitor {
+  position: absolute;
+  bottom: 300px; /* sits ON desk */
+  left: 65%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#monitor img {
+  width: 450px;
+  image-rendering: pixelated;
+}
+
+
+#keyboard {
+  position: absolute;
+  bottom: 305px; /* sits ON desk */
+  left: 60%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#keyboard img {
+  width: 260px;
+  height: 95px;
+  image-rendering: pixelated;
+}
+
+#mouse {
+  position: absolute;
+  bottom: 330px; /* sits ON desk */
+  left: 83%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#mouse img {
+  width: 40px;
+  image-rendering: pixelated;
+}
+
+#cat {
+  position: absolute;
+  bottom: 210px; /* sits ON desk */
+  left: 172.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#cat img {
+  width: 150px;
+  image-rendering: pixelated;
+}
+
+#ps {
+  position: absolute;
+  bottom: 330px; /* sits ON desk */
+  left: 100.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#ps img {
+  width: 100px;
+  image-rendering: pixelated;
+}
+
+#stp {
+  position: absolute;
+  bottom: 650px; /* sits ON desk */
+  left: 97.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#stp img {
+  width: 130px;
+  image-rendering: pixelated;
+}
+
+#poem {
+  position: absolute;
+  bottom: 575px; /* sits ON desk */
+  left: 138%;
+  transform: translateX(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#poem img {
+  width: 130px;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease;
+}
+
+#poem:hover img {
+  transform: translateY(-6px);
+}
+
+#WBB {
+  position: absolute;
+  bottom: 650px; /* sits ON desk */
+  left: 110.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#WBB img {
+  width: 60px;
+  image-rendering: pixelated;
+}
+
+#frame {
+  position: absolute;
+  bottom: 270px; /* sits ON desk */
+  left: 49.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#frame img {
+  width: 100px;
+  image-rendering: pixelated;
+}
+
+#framecat {
+  position: absolute;
+  bottom: 295px; /* sits ON desk */
+  left: 9%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#framecat img {
+  width: 80px;
+  image-rendering: pixelated;
+}
+
+#written {
+  position: absolute;
+  bottom: 700px; /* sits ON desk */
+  left: 30%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#written img {
+  width: 170px;
+  transition: transform 0.2s ease;
+  image-rendering: pixelated;
+}
+
+#written:hover img {
+  transform: translateY(-6px);
+}
+
+
+
+#music {
+  position: absolute;
+  bottom: 410px; /* sits ON desk */
+  left: 172.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#music img {
+  width: 150px;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#music:hover img {
+  transform: translateY(-4px) scale(1.04) rotate(-2deg);
+}
+
+.music-icons {
+  position: absolute;
+  inset: auto auto 18px 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+
+.music-icons span {
+  position: absolute;
+  opacity: 0;
+  color: #323261;
+  font-size: 1rem;
+  transform-origin: center;
+  animation: music-dance 1.4s ease-in-out infinite;
+}
+
+.music-icons span:nth-child(1) {
+  left: 10%;
+  top: -35px;
+  animation-delay: 0s;
+}
+
+.music-icons span:nth-child(2) {
+  right: 22%;
+  top: -15px;
+  animation-delay: 0.12s;
+}
+
+.music-icons span:nth-child(3) {
+  left: 44%;
+  top: -23px;
+  animation-delay: 0.24s;
+}
+
+#music.active .music-icons span {
+  opacity: 1;
+}
+
+@keyframes music-dance {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0); }
+  50% { transform: translateY(-10px) scale(1.1) rotate(-8deg); }
+}
+
+.music-indicator {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 140px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  background: rgba(15, 25, 45, 0.94);
+  color: #5f80a4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 120, 180, 0.2);
+  border: 1px solid rgba(109, 199, 255, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.music-indicator.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.music-indicator::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(15, 25, 45, 0.94);
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+
+#screen {
+  position: absolute;
+  bottom: 300px; /* sits ON desk */
+  left: 65%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#screen img {
+  width: 450px;
+  image-rendering: pixelated;
+}
+
+#site {
+  position: absolute;
+  bottom: 590px; /* sits ON desk */
+  left: 47%;
+  transform: translateX(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#site img {
+  width: 30px;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease;
+}
+
+#site:hover img {
+  transform: translateY(-6px);
+}
+
+.glowing-item img {
+  filter: drop-shadow(0 0 20px rgba(0, 255, 200, 0.25));
+  transition: filter 0.2s ease;
+}
+
+.desk-area:has(.glowing-item:hover) .glowing-item img {
+  filter: drop-shadow(0 0 40px rgba(0, 255, 200, 0.60));
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(47, 62, 90, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 0.7;
+  pointer-events: auto;
+}
+
+.modal-card {
+  width: 500px;
+  height: 420px;
+  background: url('assets/UI.png') no-repeat center;
+  background-size: 570px 500px;
+  image-rendering: pixelated;
+  border-radius: 50px;
+  padding: 80px 24px 24px 42px;
+  color: #2f2721;
+  font-family: 'Cormorant Infant', Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.modal-header {
+  display: flex;
+  align-items: right;
+  left: 100%;
+  bottom: 50%;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+
+.modal-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #2f2721;
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
+
+.modal-close {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #7d5e3f;
+  border-radius: 10px;
+  color: #2f2721;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin: 20px 0 0 0;
+  transform: translateX(-20px);
+}
+
+.modal-card p,
+.modal-card ul {
+  margin: 11px 0;
+  max-width: 220px;
+}
+
+.modal-card ul {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-card li {
+  margin-bottom: 15px;
+  margin-left: 30px;
+}
+
+.modal-card a {
+  color: #3c3025;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(68, 57, 46, 0.6);
+  transition: color 0.2s ease;
+}
+
+.modal-card a:hover {
+  color: #5a4a3a;
+}
+
+#devlog {
+  position: absolute;
+  bottom: 550px; /* sits ON desk */
+  left: 47%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#devlog img {
+  width: 30px;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease;
+}
+
+#devlog:hover img {
+  transform: translateY(-6px);
+}
+
+/* Bookshelf / books */
+
+#literature {
+  position: absolute;
+  bottom: 400px; /* same level as monitor base */
+  right: 430px;
+  z-index: 3;
+}
+
+#literature img {
+  width: 130px;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+}
+
+#literature:hover img {
+  transform: translateY(-6px);
+}
+
+/* shelf stuff */
+
+#shelf {
+  position: absolute;
+  bottom: -5px; /* sits ON desk */
+  left: 81.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#shelf img {
+  width: 700px;
+  image-rendering: pixelated;
+  height: 650px;
+  filter: drop-shadow(0 4px 3px rgba(0,0,0,0.25));
+}
+
+/* board stuff */
+
+#board {
+  position: absolute;
+  bottom: 100px; /* sits ON desk */
+  left: 31.4%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#board img {
+  width: 700px;
+  image-rendering: pixelated;
+  height: 700px;
+}
+
+
+
+/* ===== BLOG (unchanged mostly) ===== */
+
+#blog {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 0%;
+  left: 52%;
+  transform: translateX(-50%) scale(0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 68px 28px 28px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.4s ease;
+  background: url('assets/page.png') no-repeat center/contain;
+  background-size: contain;
+}
+
+#poemsPanel {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 0%;
+  left: 52%;
+  transform: translateX(-50%) scale(0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 68px 28px 28px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.4s ease;
+  background: url('assets/page.png') no-repeat center/contain;
+  background-size: contain;
+}
+
+#blog h1,
+#poemsPanel h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+#posts a.post,
+#poemPosts a.post {
+  display: block;
+  margin-bottom: 12px;
+}
+
+#posts a.post h2,
+#poemPosts a.post h2 {
+  position: relative;
+  padding-left: 32px;
+}
+
+#posts a.post h2::before,
+#poemPosts a.post h2::before {
+  content: '⚜';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7d5e3f;
+  font-size: 1.1rem;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+#blog p,
+#posts p,
+#poemsPanel p,
+#poemPosts p {
+  font-family: 'Cormorant Infant', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: #2f2721;
+}
+
+#blog.active,
+#poemsPanel.active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+
+#posts,
+#poemPosts {
+  width: 40%;
+  max-height: calc(100% - 180px);
+  overflow-y: auto;
+}
+
+button {
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#backBtn,
+#poemBackBtn {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  top: 50px;
+  left: 75px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80px;
+  max-height: 80px;
+  opacity: 1;
+  transition: transform 0.15s ease;
+}
+
+#backBtn:hover,
+#poemBackBtn:hover {
+  transform: scale(1.08);
+}
+
+#backBtn img,
+#poemBackBtn img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+#home {
+  transition: all 0.4s ease;
+}
+
+#blog,
+#poemsPanel {
+  transition: all 0.4s ease;
+}
+
+#home.hidden {
+  filter: blur(100px);
+  opacity: 0.3;
+}
