@@ -43,17 +43,17 @@ const musicButton = document.getElementById("music");
 const musicIndicator = document.getElementById("musicIndicator");
 const musicIcons = document.getElementById("musicIcons");
 const trackFiles = [
-  "assets/il vento d'oro.mp3",
+  "assets/While My Guitar Gently Weeps.mp3",
   "assets/Heart To Heart.mp3",
   "assets/DShozier.mp3",
   "assets/GOFLB.mp3"
   
 ];
 const trackLabels = [
-  "Il vento d'oro",
+  "Beatles",
   "Heart To Heart",
   "De Selby Pt.2",
-  "GOFLB"
+  "Queen"
 ];
 let musicState = 0;
 let musicPlayer = new Audio();

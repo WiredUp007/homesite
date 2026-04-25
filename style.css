@@ -252,12 +252,7 @@ body {
 
 #written img {
   width: 170px;
-  transition: transform 0.2s ease;
   image-rendering: pixelated;
-}
-
-#written:hover img {
-  transform: translateY(-6px);
 }
 
 
