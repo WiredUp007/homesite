@@ -194,8 +194,8 @@ body {
 
 #poem {
   position: absolute;
-  bottom: 575px; /* sits ON desk */
-  left: 175%;
+  bottom: 690px; /* sits ON desk */
+  left: 173%;
   transform: translateX(-50%);
   z-index: 2;
   cursor: pointer;
@@ -239,8 +239,8 @@ body {
 
 #framecat {
   position: absolute;
-  bottom: 295px; /* sits ON desk */
-  left: 12.9%;
+  bottom: 600px; /* sits ON desk */
+  left: 20.9%;
   transform: translateX(-50%);
   z-index: 2;
 }
@@ -267,8 +267,8 @@ body {
 
 #music {
   position: absolute;
-  bottom: 410px; /* sits ON desk */
-  left: 172.5%;
+  bottom: 470px; /* sits ON desk */
+  left: 210.5%;
   transform: translateX(-50%);
   z-index: 2;
   cursor: pointer;
@@ -384,8 +384,8 @@ body {
 
 #site {
   position: absolute;
-  bottom: 590px; /* sits ON desk */
-  left: 47%;
+  bottom: 700px; /* sits ON desk */
+  left: 41%;
   transform: translateX(-50%);
   z-index: 2;
   cursor: pointer;
@@ -509,8 +509,8 @@ body {
 
 #devlog {
   position: absolute;
-  bottom: 550px; /* sits ON desk */
-  left: 47%;
+  bottom: 650px; /* sits ON desk */
+  left: 41%;
   transform: translateX(-50%);
   z-index: 2;
 }
