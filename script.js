@@ -9,6 +9,22 @@ const backBtn = document.getElementById("backBtn");
 const poem = document.getElementById("poem");
 const poemsPanel = document.getElementById("poemsPanel");
 const poemBackBtn = document.getElementById("poemBackBtn");
+const root = document.documentElement;
+
+const SCENE_WIDTH = 1600;
+const SCENE_HEIGHT = 900;
+
+function syncSceneScale() {
+  const scale = Math.min(
+    window.innerWidth / SCENE_WIDTH,
+    window.innerHeight / SCENE_HEIGHT
+  );
+
+  root.style.setProperty("--scene-scale", Math.max(scale, 0.35).toFixed(4));
+}
+
+syncSceneScale();
+window.addEventListener("resize", syncSceneScale);
 
 // Home → Blog
 literature.addEventListener("click", () => {
