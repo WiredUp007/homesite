@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sketchbook</title>
+  <link rel="stylesheet" href="sketchbook.css">
+</head>
+<body>
+  <header class="sb-header">
+    <a class="back" href="index.html">← Home</a>
+    <h1>Sketchbook</h1>
+    <p class="sub">my art stuff. only good ones will be found here :P </p>
+  </header>
+
+  <main class="gallery">
+    <!-- Replace these src values with your actual artwork files in /assets -->
+    <button class="thumb"><img src="assets/art1.png" alt="Art 1"></button>
+    <button class="thumb"><img src="assets/art2.png" alt="Art 2"></button>
+    <button class="thumb"><img src="assets/art3.png" alt="Art 3"></button>
+    <button class="thumb"><img src="assets/art4.png" alt="Art 4"></button>
+    <button class="thumb"><img src="assets/art5.png" alt="Art 5"></button>
+    <button class="thumb"><img src="assets/art6.png" alt="Art 6"></button>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="closeLB" class="lb-close" aria-label="Close">✕</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script src="sketchbook.js"></script>
+</body>
+</html>

@@ -211,6 +211,25 @@ body {
   transform: translateY(-6px);
 }
 
+#sketchbook {
+  position: absolute;
+  bottom: 460px; /* sits ON desk */
+  left: 170%;
+  transform: translateX(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#sketchbook img {
+  width: 180px;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease;
+}
+
+#sketchbook:hover img {
+  transform: translateY(-6px);
+}
+
 #WBB {
   position: absolute;
   bottom: 760px; /* sits ON desk */
