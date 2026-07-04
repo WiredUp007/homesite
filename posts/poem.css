@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Shadows+Into+Light&family=IBM+Plex+Sans:wght@500;700&display=swap');
+
+:root {
+  --paper: #f3efe5;
+  --paper-deep: #e8e0cf;
+  --ink: #2c2722;
+  --muted: #766b5f;
+  --line: rgba(133, 126, 116, 0.18);
+  --margin-line: rgba(168, 113, 97, 0.22);
+  --shadow: rgba(60, 46, 35, 0.2);
+  --polaroid: #fbf7f1;
+  --tape: rgba(250, 243, 212, 0.78);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.5), transparent 18%),
+    radial-gradient(circle at 86% 15%, rgba(201, 197, 187, 0.42), transparent 17%),
+    linear-gradient(180deg, #d7d1c7 0%, #c6beb1 100%);
+  font-family: 'Shadows Into Light', cursive;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 28%, rgba(0, 0, 0, 0.03), transparent 20%),
+    radial-gradient(circle at 82% 64%, rgba(0, 0, 0, 0.04), transparent 18%);
+  pointer-events: none;
+}
+
+.poem-page {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  padding: 26px 18px 40px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #3d342c;
+  text-decoration: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(61, 52, 44, 0.35);
+}
+
+.poem-sheet {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 28px 34px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 140px),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 42px,
+      var(--line) 42px 43px
+    ),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  box-shadow:
+    0 26px 64px var(--shadow),
+    inset 0 0 0 1px rgba(93, 79, 68, 0.12);
+}
+
+.poem-sheet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 78px;
+  width: 1px;
+  background: var(--margin-line);
+}
+
+.poem-sheet::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(118, 107, 95, 0.12);
+  pointer-events: none;
+}
+
+.poem-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding: 6px 0 10px 92px;
+}
+
+.poem-title {
+  margin: 0;
+  color: #1f1a16;
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.page-date {
+  margin: 0;
+  color: #2e2924;
+  font-size: 1.3rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.poem-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  gap: 28px;
+  align-items: start;
+  padding-left: 92px;
+}
+
+.poem-body p {
+  margin: 0 0 28px;
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  line-height: 1.9;
+  max-width: 26ch;
+}
+
+.polaroid-note {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+.polaroid-frame {
+  position: relative;
+  width: min(100%, 290px);
+  margin: 0;
+  padding: 16px 16px 58px;
+  background: var(--polaroid);
+  box-shadow: 0 18px 34px rgba(75, 58, 45, 0.16);
+  transform: rotate(2.2deg);
+}
+
+.polaroid-frame::before,
+.polaroid-frame::after {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 68px;
+  height: 22px;
+  background: linear-gradient(180deg, var(--tape), rgba(224, 211, 174, 0.72));
+}
+
+.polaroid-frame::before {
+  left: 18px;
+  transform: rotate(-8deg);
+}
+
+.polaroid-frame::after {
+  right: 20px;
+  transform: rotate(7deg);
+}
+
+.polaroid-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(87, 71, 58, 0.18);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent 35%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(121, 112, 101, 0.06) 0 10px,
+      rgba(255, 255, 255, 0.14) 10px 20px
+    ),
+    #e7e0d6;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  color: #6f665c;
+  font-family: 'Special Elite', serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.polaroid-frame figcaption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 15px;
+  margin: 0;
+  text-align: center;
+  color: #4e433a;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 860px) {
+  .poem-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .polaroid-note {
+    justify-content: flex-start;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .poem-page {
+    padding: 18px 10px 28px;
+  }
+
+  .poem-sheet {
+    padding: 18px 16px 24px;
+  }
+
+  .poem-sheet::before {
+    left: 48px;
+  }
+
+  .poem-header {
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 58px;
+  }
+
+  .poem-layout {
+    gap: 22px;
+    padding-left: 58px;
+  }
+
+  .poem-body p {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+}

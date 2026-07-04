@@ -9,6 +9,22 @@ const backBtn = document.getElementById("backBtn");
 const poem = document.getElementById("poem");
 const poemsPanel = document.getElementById("poemsPanel");
 const poemBackBtn = document.getElementById("poemBackBtn");
+const root = document.documentElement;
+
+const SCENE_WIDTH = 1600;
+const SCENE_HEIGHT = 900;
+
+function syncSceneScale() {
+  const scale = Math.min(
+    window.innerWidth / SCENE_WIDTH,
+    window.innerHeight / SCENE_HEIGHT
+  );
+
+  root.style.setProperty("--scene-scale", Math.max(scale, 0.35).toFixed(4));
+}
+
+syncSceneScale();
+window.addEventListener("resize", syncSceneScale);
 
 // Home → Blog
 literature.addEventListener("click", () => {
@@ -43,17 +59,17 @@ const musicButton = document.getElementById("music");
 const musicIndicator = document.getElementById("musicIndicator");
 const musicIcons = document.getElementById("musicIcons");
 const trackFiles = [
-  "assets/il vento d'oro.mp3",
+  "assets/While My Guitar Gently Weeps.mp3",
   "assets/Heart To Heart.mp3",
   "assets/DShozier.mp3",
   "assets/GOFLB.mp3"
   
 ];
 const trackLabels = [
-  "Il vento d'oro",
+  "Beatles",
   "Heart To Heart",
   "De Selby Pt.2",
-  "GOFLB"
+  "Queen"
 ];
 let musicState = 0;
 let musicPlayer = new Audio();

@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background: #ddd;
+  background: #f6f7f8;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -19,14 +19,11 @@ html, body {
 }
 
 body {
-  background:
-    repeating-linear-gradient(
-      0deg,
-      #161e3a,
-      #161d36 2px,
-      #161e39 2px,
-      #1d2c5e 4px
-    );
+  background-color: #f6f7f8;
+  background-image: url("assets(drawn)/background1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 body::after {
@@ -36,7 +33,7 @@ body::after {
   background: radial-gradient(
     circle at center,
     transparent 60%,
-    rgba(0,0,0,0.15)
+    rgba(255,255,255,0.04)
   );
   pointer-events: none;
 }
@@ -91,12 +88,13 @@ body {
 
 #desk {
   position: absolute;
-  bottom: 0;
-  width: 130%;
+  bottom: 60px;
+  width: 250%;
+  left: 20%;
 }
 
 #desk img {
-  width: 100%;
+  width: 640px;
   image-rendering: pixelated;
   display: block;
   filter: drop-shadow(0 6px 2px rgba(0,0,0,0.2));
@@ -106,95 +104,57 @@ body {
 
 #monitor {
   position: absolute;
-  bottom: 300px; /* sits ON desk */
-  left: 65%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-#monitor img {
-  width: 450px;
-  image-rendering: pixelated;
-}
-
-
-#keyboard {
-  position: absolute;
-  bottom: 305px; /* sits ON desk */
+  bottom: 400px; /* sits ON desk */
   left: 60%;
   transform: translateX(-50%);
   z-index: 2;
 }
 
-#keyboard img {
-  width: 260px;
-  height: 95px;
+#monitor img {
+  width: 300px;
   image-rendering: pixelated;
 }
 
+
 #mouse {
   position: absolute;
-  bottom: 330px; /* sits ON desk */
-  left: 83%;
+  bottom: 380px; /* sits ON desk */
+  left: 86%;
   transform: translateX(-50%);
   z-index: 2;
 }
 
 #mouse img {
-  width: 40px;
+  width: 60px;
   image-rendering: pixelated;
 }
 
-#cat {
-  position: absolute;
-  bottom: 210px; /* sits ON desk */
-  left: 172.5%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-#cat img {
-  width: 150px;
-  image-rendering: pixelated;
-}
 
 #ps {
   position: absolute;
-  bottom: 330px; /* sits ON desk */
-  left: 100.5%;
+  bottom: 350px; /* sits ON desk */
+  left: 98.5%;
   transform: translateX(-50%);
   z-index: 2;
 }
 
 #ps img {
-  width: 100px;
+  width: 85px;
   image-rendering: pixelated;
 }
 
-#stp {
-  position: absolute;
-  bottom: 650px; /* sits ON desk */
-  left: 97.5%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-#stp img {
-  width: 130px;
-  image-rendering: pixelated;
-}
 
 #poem {
   position: absolute;
-  bottom: 575px; /* sits ON desk */
-  left: 138%;
+  bottom: 498px; /* sits ON desk */
+  left: 132%;
   transform: translateX(-50%);
   z-index: 2;
   cursor: pointer;
 }
 
 #poem img {
-  width: 130px;
+  width: 140px;
   image-rendering: pixelated;
   transition: transform 0.2s ease;
 }
@@ -203,76 +163,19 @@ body {
   transform: translateY(-6px);
 }
 
-#WBB {
-  position: absolute;
-  bottom: 650px; /* sits ON desk */
-  left: 110.5%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-#WBB img {
-  width: 60px;
-  image-rendering: pixelated;
-}
-
-#frame {
-  position: absolute;
-  bottom: 270px; /* sits ON desk */
-  left: 49.5%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-#frame img {
-  width: 100px;
-  image-rendering: pixelated;
-}
-
-#framecat {
-  position: absolute;
-  bottom: 295px; /* sits ON desk */
-  left: 9%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-#framecat img {
-  width: 80px;
-  image-rendering: pixelated;
-}
-
-#written {
-  position: absolute;
-  bottom: 700px; /* sits ON desk */
-  left: 30%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-#written img {
-  width: 170px;
-  transition: transform 0.2s ease;
-  image-rendering: pixelated;
-}
-
-#written:hover img {
-  transform: translateY(-6px);
-}
-
 
 
 #music {
   position: absolute;
-  bottom: 410px; /* sits ON desk */
-  left: 172.5%;
+  bottom: 335px; /* sits ON desk */
+  left: 164.5%;
   transform: translateX(-50%);
   z-index: 2;
   cursor: pointer;
 }
 
 #music img {
-  width: 150px;
+  width: 200px;
   image-rendering: pixelated;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
@@ -526,13 +429,13 @@ body {
 
 #literature {
   position: absolute;
-  bottom: 400px; /* same level as monitor base */
-  right: 430px;
+  bottom: 450px; /* same level as monitor base */
+  right: -50px;
   z-index: 3;
 }
 
 #literature img {
-  width: 130px;
+  width: 200px;
   image-rendering: pixelated;
   transition: transform 0.2s ease;
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
@@ -546,16 +449,16 @@ body {
 
 #shelf {
   position: absolute;
-  bottom: -5px; /* sits ON desk */
+  bottom: -12px; /* sits ON desk */
   left: 81.5%;
   transform: translateX(-50%);
   z-index: 2;
 }
 
 #shelf img {
-  width: 700px;
+  width: 450px;
   image-rendering: pixelated;
-  height: 650px;
+  height: 630px;
   filter: drop-shadow(0 4px 3px rgba(0,0,0,0.25));
 }
 
