@@ -64,12 +64,31 @@ body {
 /* ===== DESK WRAPPER (IMPORTANT) ===== */
 /* This becomes the reference for EVERYTHING */
 
+.board-area {
+  position: absolute;
+  bottom: 280px;
+  left: 15%;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+  scale: 0.48;
+  transform-origin: bottom center;
+}
+
+.board-area img {
+  width: 700px;
+  image-rendering: pixelated;
+  display: block;
+  opacity: 0.9;
+}
+
 .desk-area {
   position: absolute;
   bottom: -204px;
   left: -50px;
   width: 700px;
   height: 300px;
+  z-index: 1;
 }
 .desk-area::after {
   content: "";
