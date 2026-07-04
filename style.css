@@ -20,7 +20,7 @@ html, body {
 
 body {
   background-color: #f6f7f8;
-  background-image: url("assets(drawn)/background1.jpg");
+  background-image: url("assets_drawn/background1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
