@@ -1,0 +1,106 @@
+:root {
+    color-scheme: light;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #47466d;
+    color: #a1bcef;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.5rem 1.25rem 4rem;
+}
+
+.hero {
+    padding: 0 0 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #7992f8;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 0.72rem;
+    color: #6a82e0;
+}
+
+h1 {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.intro {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #c7c3eb;
+    max-width: 650px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.posts {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.post-card,
+.sidebar {
+    padding: 0;
+    background: transparent;
+}
+
+.post-card h2,
+.sidebar h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.post-card p {
+    margin: 0 0 0.6rem;
+    line-height: 1.75;
+    color: #c7c3eb;
+}
+
+.post-card a,
+.sidebar a {
+    color: #a199ea;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.post-card a:hover,
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: grid;
+    gap: 0.4rem;
+}
+
+@media (max-width: 750px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}

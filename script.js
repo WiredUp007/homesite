@@ -3,8 +3,15 @@ const blog = document.getElementById("blog");
 const site = document.getElementById("site");
 const projectsModal = document.getElementById("projectsModal");
 const projectsClose = document.getElementById("projectsClose");
+const todoModal = document.getElementById("todoModal");
+const todoClose = document.getElementById("todoClose");
+const todoButton = document.getElementById("todo");
 
 const literature = document.getElementById("literature");
+const literatureModal = document.getElementById("literatureModal");
+const literatureClose = document.getElementById("literatureClose");
+const introModal = document.getElementById("introModal");
+const introOk = document.getElementById("introOk");
 const backBtn = document.getElementById("backBtn");
 const poem = document.getElementById("poem");
 const poemsPanel = document.getElementById("poemsPanel");
@@ -28,14 +35,41 @@ window.addEventListener("resize", syncSceneScale);
 
 // Home → Blog
 literature.addEventListener("click", () => {
-  home.classList.add("hidden");
-  blog.classList.add("active");
+  // open literature modal (uses same UI.png modal-card)
+  if (literatureModal) {
+    literatureModal.classList.add("active");
+    home.classList.add("hidden");
+  } else {
+    home.classList.add("hidden");
+    blog.classList.add("active");
+  }
 });
 
-poem.addEventListener("click", () => {
-  home.classList.add("hidden");
-  poemsPanel.classList.add("active");
+if (literatureClose) {
+  literatureClose.addEventListener("click", () => {
+    literatureModal.classList.remove("active");
+    home.classList.remove("hidden");
+  });
+}
+
+// Show intro modal on page load
+window.addEventListener("load", () => {
+  if (introModal) {
+    introModal.classList.add("active");
+    home.classList.add("hidden");
+  }
 });
+
+if (introOk) {
+  introOk.addEventListener("click", () => {
+    introModal.classList.remove("active");
+    home.classList.remove("hidden");
+  });
+}
+
+// intro modal has only the OK button for dismissal
+
+// `poem` element is now non-interactive — no click handler attached.
 
 // Site → Projects modal
 site.addEventListener("click", () => {
@@ -48,10 +82,34 @@ projectsClose.addEventListener("click", () => {
   home.classList.remove("hidden");
 });
 
+todoButton.addEventListener("click", () => {
+  todoModal.classList.add("active");
+  home.classList.add("hidden");
+});
+
+todoClose.addEventListener("click", () => {
+  todoModal.classList.remove("active");
+  home.classList.remove("hidden");
+});
+
 window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && projectsModal.classList.contains("active")) {
-    projectsModal.classList.remove("active");
-    home.classList.remove("hidden");
+  if (event.key === "Escape") {
+    if (projectsModal.classList.contains("active")) {
+      projectsModal.classList.remove("active");
+      home.classList.remove("hidden");
+    }
+    if (todoModal.classList.contains("active")) {
+      todoModal.classList.remove("active");
+      home.classList.remove("hidden");
+    }
+    if (literatureModal && literatureModal.classList.contains("active")) {
+      literatureModal.classList.remove("active");
+      home.classList.remove("hidden");
+    }
+    if (introModal && introModal.classList.contains("active")) {
+      introModal.classList.remove("active");
+      home.classList.remove("hidden");
+    }
   }
 });
 

@@ -119,6 +119,18 @@ body {
   filter: drop-shadow(0 6px 2px rgba(0,0,0,0.2));
 }
 
+#dustbin {
+  position: absolute;
+  bottom: 190px;
+  left: 6.5%;
+  z-index: 0;
+}
+
+#dustbin img {
+  width: 120px;
+  image-rendering: pixelated;
+}
+
 /* ===== OBJECTS ON DESK ===== */
 
 #monitor {
@@ -148,6 +160,43 @@ body {
   image-rendering: pixelated;
 }
 
+/* glasses: similar styling to mouse */
+#glasses {
+  position: absolute;
+  bottom: 350px; /* sits near mouse */
+  left: 47%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#glasses img {
+  width: 120px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 3px 2px rgba(0,0,0,0.18));
+  transition: transform 0.18s ease;
+}
+
+/* todo icon: styled like glasses */
+#todo {
+  position: absolute;
+  bottom: 400px;
+  left: 35%;
+  transform: translateX(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#todo img {
+  width: 100px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 3px 2px rgba(0,0,0,0.18));
+  transition: transform 0.18s ease;
+}
+
+#todo:hover img {
+  transform: translateY(-4px);
+}
+
 
 #ps {
   position: absolute;
@@ -169,17 +218,19 @@ body {
   right: 28%;
   transform: translateX(50%);
   z-index: 7;
-  cursor: pointer;
+  /* make non-interactive */
+  pointer-events: none !important;
+  cursor: default !important;
 }
 
 #poem img {
   width: 160px;
   image-rendering: pixelated;
-  transition: transform 0.2s ease;
+  transition: none !important;
 }
 
 #poem:hover img {
-  transform: translateY(-6px);
+  transform: none !important;
 }
 
 
@@ -201,6 +252,37 @@ body {
 
 #music:hover img {
   transform: translateY(-4px) scale(1.04) rotate(-2deg);
+}
+
+/* book: similar to music but smaller */
+#book {
+  position: absolute;
+  bottom: 125px;
+  right: 28%;
+  transform: translateX(50%);
+  z-index: 8;
+  cursor: pointer;
+}
+
+#book img {
+  width: 200px;
+  image-rendering: pixelated;
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+#knack {
+  position: absolute;
+  bottom: 455px;
+  right: 23%;
+  transform: translateX(50%);
+  z-index: 8;
+  cursor: pointer;
+}
+
+#knack img {
+  width: 300px;
+  image-rendering: pixelated;
+  transition: transform 0.18s ease, filter 0.18s ease;
 }
 
 .music-icons {
@@ -332,45 +414,198 @@ body {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(47, 62, 90, 0.88);
+  background: rgba(69, 70, 118, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
   z-index: 999;
+  backdrop-filter: blur(3px);
 }
 
 .modal-overlay.active {
-  opacity: 0.7;
+  opacity: 1;
   pointer-events: auto;
 }
 
-.modal-card {
-  width: 500px;
-  height: 420px;
-  background: url('assets/UI.png') no-repeat center;
-  background-size: 570px 500px;
-  image-rendering: pixelated;
-  border-radius: 50px;
-  padding: 80px 24px 24px 42px;
-  color: #2f2721;
-  font-family: 'Cormorant Infant', Georgia, serif;
+.todo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(69, 70, 118, 0.95);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+}
+
+.todo-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.todo-modal-card {
+  width: 570px;
+  height: 500px;
+  max-width: 96vw;
+  background-image: url('assets/UI.png');
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 570px 500px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* remove previous todo overlay elements so only the UI.png shows */
+.todo-note-topbar,
+.todo-date-input,
+.todo-doodle,
+.todo-note-body,
+.todo-note-left,
+.todo-note-right,
+.todo-note-left ul,
+.todo-note-left li,
+.todo-note-checkbox,
+.todo-list {
+  display: none !important;
+}
+
+/* overlay content placed to match UI.png layout */
+.todo-ui-content {
+  position: absolute;
+  top: 120px; /* adjust to fit the title area on UI.png */
+  left: 170px;
+  right: 44px;
+  color: #3e3325;
+  font-family: 'Cormorant Infant', Georgia, serif;
+}
+
+.todo-ui-content h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  color: #2f2721;
+}
+
+.todo-ui-content ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.todo-ui-content li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* Fresh standalone intro modal (no UI images or old modal styles) */
+.intro-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 1100;
+}
+
+.intro-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.intro-modal-card {
+  width: 680px;
+  max-width: 96vw;
+  min-height: 420px;
+  background: linear-gradient(180deg,#fffefc,#fbf8f3);
+  border-radius: 12px;
+  box-shadow: 0 22px 48px rgba(12,18,30,0.5);
+  padding: 34px 34px 28px;
+  color: #232020;
+  font-family: 'Cormorant Infant', Georgia, serif;
+  position: relative;
+}
+
+.intro-modal-card .intro-ui-content {
+  text-align: center;
+}
+
+.intro-modal-card .intro-ui-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.45rem;
+  color: #2b231e;
+}
+
+.intro-modal-card .intro-ui-content p {
+  margin: 0 0 14px;
+  color: #3b322b;
+  line-height: 1.35;
+}
+
+.intro-modal-card .intro-ok {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #2b231e;
+  color: #fffefc;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.98rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 14px;
+  border: 1px solid #7b5636;
+  background: rgba(213, 218, 170, 0.92);
+  color: #2f2721;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.modal-card {
+  width: 570px;
+  height: 500px;
+  max-width: 96vw;
+  background-image: url('assets/UI.png');
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 570px 500px;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
 }
 
 .modal-header {
   display: flex;
   align-items: right;
-  left: 100%;
+  left: 90%;
   bottom: 50%;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 100px;
 }
 
 
@@ -379,8 +614,8 @@ body {
   font-size: 1.3rem;
   font-family: 'Cormorant Garamond', Georgia, serif;
   color: #2f2721;
-  margin-bottom: 20px;
-  margin-left: 30px;
+  margin-bottom: 10px;
+  margin-left: 200px;
 }
 
 .modal-close {
@@ -412,18 +647,69 @@ body {
 
 .modal-card li {
   margin-bottom: 15px;
-  margin-left: 30px;
+  margin-left: 180px;
 }
 
-.modal-card a {
-  color: #3c3025;
-  text-decoration: none;
-  border-bottom: 1px dashed rgba(68, 57, 46, 0.6);
-  transition: color 0.2s ease;
+/* Adjust literature modal text placement: heading slightly right, list slightly left */
+#literatureModal .modal-card h4 {
+  margin-left: 160px; /* move heading a bit to the right */
 }
 
-.modal-card a:hover {
-  color: #5a4a3a;
+#literatureModal .modal-card h2 {
+  padding-left: 18px;
+  max-width: 260px;
+  margin-left: 160px; /* reset any global offsets */
+  bottom: 170px;
+}
+
+/* Intro modal content styling (over UI.png) */
+#introModal .intro-ui-content {
+  position: absolute;
+  top: 120px;
+  left: 56px;
+  right: 56px;
+  color: #3e3325;
+  font-family: 'Cormorant Infant', Georgia, serif;
+  text-align: center;
+}
+
+#introModal .intro-ui-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+}
+
+.intro-modal-card .intro-ui-content {
+  text-align: center;
+  top: 44px; /* lift content upward */
+  position: relative;
+}
+
+.intro-modal-card .intro-ui-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  color: #2b231e;
+}
+
+.intro-modal-card .intro-ui-content p {
+  margin: 0 0 12px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.intro-modal-card .intro-ok {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #2b231e;
+  color: #fffefc;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  margin-top: 12px;
 }
 
 #devlog {
@@ -481,12 +767,33 @@ body {
   filter: drop-shadow(0 4px 3px rgba(0,0,0,0.25));
 }
 
+/* bag on the shelf */
+#bag {
+  position: absolute;
+  bottom: -10px; /* sits on shelf */
+  left: 73.2%;
+  transform: translateX(-50%);
+  z-index: 6;
+  cursor: pointer;
+}
+
+#bag img {
+  width: 250px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 3px rgba(0,0,0,0.22));
+  transition: transform 0.18s ease;
+}
+
+#bag:hover img {
+  transform: translateY(-6px) scale(1.03);
+}
+
 /* board stuff */
 
 #board {
   position: absolute;
   bottom: 100px; /* sits ON desk */
-  left: 31.4%;
+  left: 27.4%;
   transform: translateX(-50%);
   z-index: 2;
 }
@@ -495,6 +802,21 @@ body {
   width: 700px;
   image-rendering: pixelated;
   height: 700px;
+}
+
+/* catshelf: similar placement to board, smaller */
+#catshelf {
+  position: relative;
+  bottom: 340px;
+  left: 130%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#catshelf img {
+  width: 700px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 3px rgba(0,0,0,0.22));
 }
 
 

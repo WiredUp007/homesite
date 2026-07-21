@@ -1,0 +1,255 @@
+:root {
+    background: #47466d;
+  --panel: #47466d;
+  --ink: #c7c3eb;
+  --muted: #a1bcef;
+  --line: #d9cdb9;
+  --accent: #a1bcef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--page-bg);
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+main {
+  width: min(100%, 860px);
+  margin: 0 auto;
+  padding: 2.25rem 1.2rem 3.25rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.back-link:hover {
+  color: var(--ink);
+}
+
+article {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 1.6rem 1.5rem;
+}
+
+h1 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2,
+h3 {
+  margin: 1.1rem 0 0.5rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.entry-card,
+.news-sheet,
+.diary-sheet,
+.poem-sheet {
+  padding: 1.6rem 1.5rem;
+}
+
+.scrapbook-spread,
+.poem-layout,
+.lower-notes {
+  display: block;
+}
+
+.tab-row {
+  display: none;
+}
+
+.spread-column,
+.main-column,
+.intro-column {
+  padding: 0;
+  border: none;
+}
+
+.post-stamp {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  color: var(--accent);
+  background: transparent;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mini-card {
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 0.9rem 1rem;
+  margin: 0 0 1rem;
+}
+
+.polaroid-frame {
+  margin: 1rem 0 1.2rem;
+  padding: 0.8rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  transform: none;
+}
+
+.polaroid-frame::before,
+.polaroid-frame::after {
+  display: none;
+}
+
+.polaroid-frame figcaption {
+  position: static;
+  margin-top: 0.6rem;
+  text-align: left;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.journal-text,
+.entry-writing,
+.poem-body,
+.article-columns {
+  padding: 0;
+}
+
+.article-columns {
+  column-count: 1;
+  column-gap: 0;
+  column-rule: 0;
+}
+
+.article-columns p {
+  margin-bottom: 1rem;
+}
+
+.entry-header,
+.entry-meta,
+.poem-header,
+.meta-row {
+  display: block;
+  padding: 0;
+  margin: 0 0 1rem;
+  border: none;
+}
+
+.entry-year,
+.entry-month,
+.entry-span,
+.page-date {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.entry-writing {
+  padding: 0;
+}
+
+.lower-notes {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+}
+
+.margin-note {
+  padding: 0;
+}
+
+.note-title {
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sketch-block {
+  width: 100%;
+  padding: 0.7rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  transform: none;
+}
+
+.sketch-image {
+  width: 100%;
+  border: 1px solid var(--line);
+}
+
+.poem-layout {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.poem-body p {
+  margin-bottom: 1rem;
+}
+
+.page-nav {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.nav-chip {
+  display: inline-block;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.nav-chip:hover {
+  background: #f3eadf;
+}
+
+@media (max-width: 700px) {
+  main {
+    padding: 1.25rem 0.9rem 2rem;
+  }
+
+  article {
+    padding: 1.25rem 1rem;
+  }
+}

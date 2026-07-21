@@ -14,12 +14,20 @@
       <div id="board">
         <img src="assets_drawn/board.png" alt="Board background">
       </div>
+      
+      <div id="catshelf">
+        <img src="assets_drawn/catshelf.png">
+      </div>
     </div>
 
      <div class = "shelf-area">
    <div id="shelf">
     <img src="assets_drawn/shelf.png">
    </div> 
+
+   <div id="bag" class="clickable">
+     <img src="assets_drawn/bag.png" alt="Bag on shelf">
+   </div>
 
    <div id="music">
      <img src="assets_drawn/music.png" alt="Music Control">
@@ -31,12 +39,23 @@
      </div>
    </div>
 
-   <div id="poem" class="clickable">
+   <div id="poem">
      <img src="assets_drawn/poem.png" alt="Poetry">
    </div>
    </div>
 
+   <div id="book" class="clickable">
+     <img src="assets_drawn/book.png" alt="Book">
+   </div>
+
+   <div id="knack" class="clickable">
+     <img src="assets_drawn/knack.png" alt="Knack">
+   </div>
 <div class="desk-area">
+
+  <div id="dustbin">
+    <img src="assets_drawn/dustbin.png" alt="Dustbin">
+  </div>
 
   <div id="desk">
     <img src="assets_drawn/desk.png">
@@ -67,6 +86,14 @@
   <img src="assets_drawn/phone.png">
 </div>
 
+<div id="glasses">
+  <img src="assets_drawn/glasses.png" alt="Glasses">
+</div>
+
+<div id="todo">
+  <img src="assets_drawn/todo.png" alt="Todo">
+</div>
+
 
   <div id="literature" class="clickable">
     <img src="assets_drawn/literature.png">
@@ -82,23 +109,67 @@
         <button id="projectsClose" class="modal-close" aria-label="Close">✕</button>
       </div>
     
-       <h3>Links to some stuff </h3> 
+       <h3> Contact or Read More  </h3> 
       <ul>  
-        <li><a href="https://www.tumblr.com/blog/atticusfinchattic" target="_blank" rel="noopener">literature tumblr</a></li>
+        <li><a href="https://www.instagram.com/anan.ya_m_/" target="_blank" rel="noopener">instagram</a></li>
         <li><a href="https://www.wattpad.com/user/WiredUp007" target="_blank" rel="noopener">wattpad</a></li>
-        <li><a href="https://www.tumblr.com/blog/whatthewatergaveher" target="_blank" rel="noopener">main tumblr</a></li>
+        <li><a href="https://www.tumblr.com/blog/whatthewatergaveher" target="_blank" rel="noopener">tumblr</a></li>
         <li><a href="https://archiveofourown.org/users/Wired_Up" target="_blank" rel="noopener">AO3</a></li>
     
       </ul>
     </div>
   </div>
 
+  <div id="todoModal" class="todo-modal-overlay">
+    <div class="todo-modal-card">
+      <button id="todoClose" class="modal-close" aria-label="Close">✕</button>
+      <div class="todo-note-topbar">
+        <span class="todo-date-label">DATE</span>
+        <span class="todo-date-input"></span>
+        <span class="todo-doodle">ฅ^•ﻌ•^ฅ</span>
+      </div>
+         <!-- overlay content positioned over the UI.png background -->
+         <div class="todo-ui-content">
+           <h2>Coming Updates</h2>
+           <ul>
+             <li>sketchbook feature</li>
+             <li>a user friendly tour at opening</li>
+             <li>Mobile layout improvements</li>
+             <li>Monthly devlog posts</li>
+           </ul>
+         </div>
+    </div>
+  </div>
+
+  <div id="literatureModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <button id="literatureClose" class="modal-close" aria-label="Close">✕</button>
+      </div>
+      <h2> yo! cool blog right here </h2>
+      <h4><a href="blog.html"> click here and you shall be directed </a> </h4>
+    </div>
+  </div>
+  
+    <!-- Intro modal shown on page load (fresh standalone styling) -->
+    <div id="introModal" class="intro-modal-overlay">
+      <div class="intro-modal-card">
+          <div class="intro-ui-content">
+          <h2> To answer your question... </h2>
+          <p>Greetings, looker. What you have come across here is a commonplace webpage to a lot of things I have done.</p>
+           <p>  Modelled to look like a corner of my workspace, it allows you to explore things I have worked on; my blog, creative and tech projects, sketches etc.</p>
+           <p> Interactable assets have hover to them. </p>
+          <button id="introOk" class="intro-ok">OK! Got it.</button>
+        </div>
+      </div>
+    </div>
+
   <!-- BLOG SECTION -->
   <div id="blog">
     <button id="backBtn" aria-label="Back">
       <img src="assets/bookmark1.png" alt="Back">
     </button>
-    <h1>Literature Reviews & Essays </h1>
+    <h1> Blog </h1>
 
     <div id="posts">
             <a href="posts/post1.html" target="_blank" class="post">
